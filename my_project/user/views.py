@@ -10,9 +10,9 @@ from django.views.generic import CreateView
 class CreateUserView(CreateView):
     model = User
     form_class = UserCreationForm
-    template_name = 'register_form.html'
+    template_name = 'user/register_form.html'
 
 
 class UserLoginView(LoginView):
-    template_name = 'login_form.html'
+    template_name = 'user/login_form.html'
     authentication_form = AuthenticationForm
