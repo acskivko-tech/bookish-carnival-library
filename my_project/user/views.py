@@ -1,7 +1,8 @@
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView, TemplateView
 
 
 # Create your views here.
@@ -16,3 +17,7 @@ class CreateUserView(CreateView):
 class UserLoginView(LoginView):
     template_name = 'user/login_form.html'
     authentication_form = AuthenticationForm
+
+
+class UserProfileView(LoginRequiredMixin,TemplateView):
+    template_name = 'user/profile.html'
